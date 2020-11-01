@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="/">
+        
+            <!-- Logo and title -->
+            <img src="../static/images/logo.png" width="60" th:src="@{images/logo.png}"/>
+            Shaniya's Profile
+        </a>
+        
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/edit">Edit</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+            </li>
+        </ul>
+    </nav>
+    <p>Image uploaded:</p>
+    <img th:src="${imgSrc}" alt= "User photo">
+</body>
+</html>
