@@ -31,32 +31,20 @@ public class ProfileController {
     @Value("${bucketName}")
     String bucketName;
 
-    @GetMapping("/greeting")
-    public ModelAndView greeting(@RequestParam(name = "name", required = true) String name) {
-        ModelAndView mv = new ModelAndView("greeting");
-        mv.addObject("name", name+"lol");
-        return mv;
-    }
-
     @GetMapping("/")
     public String home(){
         return "home";
     }
 
     @GetMapping("/edit")
-    public String edit(){
-        return "edit";
+    public ModelAndView renderUploadPage() {
+        // System.out.println(accesskey  + bucketName + secretkey);
+        return new ModelAndView("edit");
     }
 
     @GetMapping("/login")
     public String login(){
         return "login";
-    }
-
-    @GetMapping("/index")
-    public ModelAndView renderUploadPage() {
-        // System.out.println(accesskey  + bucketName + secretkey);
-        return new ModelAndView("uploadFiles");
     }
 
     @PostMapping(value = "/upload")
@@ -83,7 +71,6 @@ public class ProfileController {
 
             //Save this in the DB. 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             returnPage.setViewName("error");
         }
